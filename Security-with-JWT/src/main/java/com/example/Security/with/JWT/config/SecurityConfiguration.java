@@ -46,7 +46,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(request -> request.requestMatchers(PUBLIC_URLS)
                         .permitAll()
                         .requestMatchers(permit_swagger).permitAll()
-                        .requestMatchers("/users").hasAnyAuthority(Role.USER.name())
+                        .requestMatchers("/users").hasAuthority(Role.USER.name())
                         .requestMatchers("/admin").hasAuthority(Role.ADMIN.name())
                         .anyRequest().authenticated())
                 .sessionManagement(manger-> manger.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
