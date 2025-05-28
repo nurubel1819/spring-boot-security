@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -21,5 +22,5 @@ public class Lab {
     @JoinTable(name = "lab_map_lab_test",
             joinColumns = @JoinColumn(name = "lab_id"),
             inverseJoinColumns = @JoinColumn(name = "test_id"))
-    private Set<LabTest> labTests;
+    private Set<LabTest> labTests = new HashSet<>();
 }

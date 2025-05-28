@@ -10,9 +10,8 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
-    private String phone;
-    private String password;
+public class RoleDto {
+    private String name;
     @Schema(hidden = true)
-    private Set<String> roles;
+    private Set<Long> users;
 }

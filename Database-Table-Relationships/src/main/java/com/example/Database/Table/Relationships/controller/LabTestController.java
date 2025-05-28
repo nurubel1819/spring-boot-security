@@ -31,14 +31,10 @@ public class LabTestController {
                 return ResponseEntity.badRequest().body(Map.of("message", "Save failed, Lab not found"));
             }
 
-            // Ensure labTests is mutable and initialized
-            if (lab.getLabTests() == null) {
-                lab.setLabTests(new HashSet<>());
-            }
-
             LabTest test = new LabTest();  // Create new LabTest object
             test.setTestName(labTestDto.getTestName());
-            test.setLabs(new HashSet<>(Set.of(lab)));  // Set Lab as the only Lab in the Set
+            //test.setLabs(new HashSet<>(Set.of(lab)));  // Set Lab as the only Lab in the Set
+            test.setLabs(Set.of(lab));
 
             lab.getLabTests().add(test);
 

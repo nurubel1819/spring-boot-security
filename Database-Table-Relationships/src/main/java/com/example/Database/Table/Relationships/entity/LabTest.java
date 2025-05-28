@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -19,5 +20,5 @@ public class LabTest {
     private String testName;
 
     @ManyToMany(mappedBy = "labTests")
-    private Set<Lab> labs;
+    private Set<Lab> labs = new HashSet<>();
 }
