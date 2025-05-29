@@ -1,4 +1,4 @@
-package com.example.My_Spring_Security.configuration;
+package com.example.My_Spring_Security.controller;
 
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.http.ResponseEntity;
