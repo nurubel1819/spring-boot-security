@@ -5,6 +5,7 @@ import com.example.Database.Table.Relationships.entity.Lab;
 import com.example.Database.Table.Relationships.entity.LabTest;
 import com.example.Database.Table.Relationships.service.LabService;
 import com.example.Database.Table.Relationships.service.LabTestService;
+import com.example.Database.Table.Relationships.service.MyInterface;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +23,7 @@ import java.util.Set;
 public class LabTestController {
     private final LabTestService labTestService;
     private final LabService labService;
+    private final MyInterface myInterface;
 
     @PostMapping("/upload")
     public ResponseEntity<?> uploadNewLabTest(@RequestBody LabTestDto labTestDto) {
