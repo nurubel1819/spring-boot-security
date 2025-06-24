@@ -23,4 +23,7 @@ public class Lab {
             joinColumns = @JoinColumn(name = "lab_id"),
             inverseJoinColumns = @JoinColumn(name = "test_id"))
     private Set<LabTest> labTests = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "hospital_id")
+    private Hospital hospital;
 }

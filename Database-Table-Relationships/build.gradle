@@ -35,6 +35,10 @@ dependencies {
 	//swagger add in project
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
 	//http://localhost:8080/swagger-ui.html
+
+	// ✅ Flyway for MySQL
+	implementation 'org.flywaydb:flyway-mysql'
+	implementation 'org.flywaydb:flyway-core'
 }
 
 tasks.named('test') {
