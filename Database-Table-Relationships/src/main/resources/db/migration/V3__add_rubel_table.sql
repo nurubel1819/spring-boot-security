@@ -1,0 +1,5 @@
+CREATE TABLE rubel
+(
+    id BIGINT AUTO_INCREMENT NOT NULL,
+    CONSTRAINT pk_rubel PRIMARY KEY (id)
+);
