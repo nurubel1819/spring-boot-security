@@ -21,7 +21,7 @@ public class Disease {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String disease_name;
+    private String disease;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "disease_id") // this will add fk in question table

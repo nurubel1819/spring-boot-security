@@ -26,7 +26,7 @@ public class UploadDataController {
     ResponseEntity<?> upload_disease(@RequestBody DiseaseDto dto) {
 
         Disease disease = new Disease();
-        disease.setDisease_name(dto.getDisease());
+        disease.setDisease(dto.getDisease());
 
         Question question = new Question();
         question.setQuestion(dto.getQuestions().get(0).getQuestion());
@@ -47,7 +47,7 @@ public class UploadDataController {
     public ResponseEntity<?> uploadDiseaseMultiple(@RequestBody DiseaseDto dto) {
 
         Disease disease = new Disease();
-        disease.setDisease_name(dto.getDisease());
+        disease.setDisease(dto.getDisease());
 
         List<Question> questions = new ArrayList<>();
 
@@ -79,7 +79,7 @@ public class UploadDataController {
         List<Disease> allUploadDisease = new ArrayList<>();
         for(DiseaseDto dto : dtoAll){
             Disease disease = new Disease();
-            disease.setDisease_name(dto.getDisease());
+            disease.setDisease(dto.getDisease());
 
             List<Question> questions = new ArrayList<>();
 
@@ -114,6 +114,11 @@ public class UploadDataController {
         List<Disease> allDisease = new ArrayList<>();
         allDisease = uploadService.getAllDisease();
         return ResponseEntity.ok(allDisease);
+    }
+    @PostMapping("/get-all-option-for-spasific-diseaseId")
+    ResponseEntity<?> getDiseaseOption(@RequestParam Long diseaseId){
+        List<OptionSelect> options = uploadService.getAllOptionForDisease(diseaseId);
+        return ResponseEntity.ok(options);
     }
 }
 

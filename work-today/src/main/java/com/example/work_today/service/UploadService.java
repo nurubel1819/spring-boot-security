@@ -2,7 +2,9 @@ package com.example.work_today.service;
 
 import com.example.work_today.dto.DiseaseDto;
 import com.example.work_today.entity.Disease;
+import com.example.work_today.entity.OptionSelect;
 import com.example.work_today.repository.DiseaseRepo;
+import com.example.work_today.repository.OptionSelectRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UploadService {
     private final DiseaseRepo diseaseRepo;
+    private final OptionSelectRepo optionSelectRepo;
 
     public Disease save_disease(Disease disease){
         try {
@@ -25,5 +28,9 @@ public class UploadService {
     }
     public List<Disease> getAllDisease(){
         return diseaseRepo.findAll();
+    }
+
+    public List<OptionSelect> getAllOptionForDisease(Long id){
+        return optionSelectRepo.findAllByDiseaseId(id);
     }
 }
