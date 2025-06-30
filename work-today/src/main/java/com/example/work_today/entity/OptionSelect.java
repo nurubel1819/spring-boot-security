@@ -16,8 +16,7 @@ public class OptionSelect {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    public String optionName;
-    @ManyToOne()
-    @JoinColumn(name = "question_id")
-    public Question question;
+
+    private String optionName;
 }
+

@@ -9,6 +9,6 @@ import java.util.ArrayList;
 public class DiseaseDto {
     @Schema(hidden = true)
     private Long id;
-    private String disease_name;
+    private String disease;
     private ArrayList<QuestionsDto> questions;
 }

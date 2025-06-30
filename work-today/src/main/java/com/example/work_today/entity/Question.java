@@ -20,14 +20,14 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String question;
-    public String field_type;
-    public String field_input;
 
-    @ManyToOne
-    @JoinColumn(name = "disease_id")
-    public Disease disease;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "question_id")
+    private List<OptionSelect> options = new ArrayList<>();
 
-    @OneToMany(mappedBy = "question",cascade = CascadeType.ALL)
-    public List<OptionSelect> options = new ArrayList<>();
+    private String field_type;
+    private String field_input;
 }
+

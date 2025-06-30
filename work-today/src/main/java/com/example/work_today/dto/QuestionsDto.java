@@ -10,8 +10,9 @@ public class QuestionsDto {
     @Schema(hidden = true)
     private Long id;
     private String question;
-    public String field_type;
-    public String field_input;
 
     private ArrayList<OptionDto> options;
+
+    public String field_type;
+    public String field_input;
 }

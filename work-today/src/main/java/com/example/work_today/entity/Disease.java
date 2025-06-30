@@ -17,12 +17,14 @@ import java.util.List;
 @Getter
 @Setter
 public class Disease {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String disease_name;
-    @OneToMany(mappedBy = "disease", cascade = CascadeType.ALL)
-    public List<Question> questions = new ArrayList<>();
 
+    private String disease_name;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "disease_id") // this will add fk in question table
+    private List<Question> questions = new ArrayList<>();
 }
+
