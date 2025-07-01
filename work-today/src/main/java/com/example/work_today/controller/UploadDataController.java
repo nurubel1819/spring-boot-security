@@ -22,28 +22,7 @@ public class UploadDataController {
     private final UploadService uploadService;
     private final DiseaseRepo diseaseRepo;
 
-    @PostMapping("/upload-disease-details")
-    ResponseEntity<?> upload_disease(@RequestBody DiseaseDto dto) {
-
-        Disease disease = new Disease();
-        disease.setDisease(dto.getDisease());
-
-        Question question = new Question();
-        question.setQuestion(dto.getQuestions().get(0).getQuestion());
-        question.setField_input(dto.getQuestions().get(0).getField_input());
-        question.setField_type(dto.getQuestions().get(0).getField_type());
-
-        OptionSelect optionSelect = new OptionSelect();
-        optionSelect.setOptionName(dto.getQuestions().get(0).getOptions().get(0).option);
-
-        question.setOptions(List.of(optionSelect));
-        disease.setQuestions(List.of(question));
-
-        disease = uploadService.save_disease(disease);
-
-        return ResponseEntity.ok(disease);
-    }
-    @PostMapping("/upload-disease-multiple data")
+    @PostMapping("/upload-data-for-single-disease")
     public ResponseEntity<?> uploadDiseaseMultiple(@RequestBody DiseaseDto dto) {
 
         Disease disease = new Disease();
@@ -115,7 +94,7 @@ public class UploadDataController {
         allDisease = uploadService.getAllDisease();
         return ResponseEntity.ok(allDisease);
     }
-    @PostMapping("/get-all-option-for-spasific-diseaseId")
+    @GetMapping("/get-all-option-for-spasific-diseaseId")
     ResponseEntity<?> getDiseaseOption(@RequestParam Long diseaseId){
         List<OptionSelect> options = uploadService.getAllOptionForDisease(diseaseId);
         return ResponseEntity.ok(options);
